@@ -13,6 +13,14 @@ jobs:
 
       - name: Checkout the repository
         uses: actions/checkout@v2
+      
+      - name: Check if langfuse tgz already exists
+        id: check_file
+        run: |
+          if [ -f "langfuse-${{ env.LANGFUSE_VERSION }}.tgz" ]; then
+            echo "Langfuse package already exists. Stopping workflow."
+            exit 1
+          fi
 
       - name: Download Langfuse tar file
         run: |
