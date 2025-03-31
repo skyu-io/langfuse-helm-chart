@@ -18,7 +18,5 @@ jobs:
           ls -la
 
       - name: Show final directory structure
-        run: cd langfuse
-
-      - name: ls
-        run: ls -la
+        run: |
+            ls -la ./langfuse
