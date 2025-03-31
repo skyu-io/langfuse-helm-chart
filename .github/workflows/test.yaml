@@ -1,0 +1,34 @@
+name: Publish langfuse to Artifact Hub
+run-name: Publish langfuse to Artifact Hub
+on: workflow_dispatch
+env:
+  LANGFUSE_VERSION: "1.1.0"
+jobs:
+  langfuse:
+    name: Publish langfuse to Artifact Hub
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Langfuse tar file
+        run: |
+          curl -L -o langfuse-${{ env.LANGFUSE_VERSION }}.tgz https://github.com/langfuse/langfuse-k8s/releases/download/langfuse-${{ env.LANGFUSE_VERSION }}/langfuse-${{ env.LANGFUSE_VERSION }}.tgz
+
+      - name: Extract tar file and check structure
+        run: |
+          tar -xzf langfuse-${{ env.LANGFUSE_VERSION }}.tgz
+          ls -la
+
+      - name: Show extracted structure
+        run: ls -la
+
+      - name: Find langfuse directory
+        run: |
+          if [ -d "langfuse-${{ env.LANGFUSE_VERSION }}" ]; then
+            echo "Extracted into langfuse-${{ env.LANGFUSE_VERSION }}"
+          else
+            echo "No directory named langfuse-${{ env.LANGFUSE_VERSION }}, checking for direct files..."
+            mkdir -p langfuse-${{ env.LANGFUSE_VERSION }}
+            mv * langfuse-${{ env.LANGFUSE_VERSION }}/ || true
+          fi
+
+      - name: Show final directory structure
+        run: ls -la langfuse-${{ env.LANGFUSE_VERSION }}
