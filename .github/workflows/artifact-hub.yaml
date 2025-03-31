@@ -35,6 +35,11 @@ jobs:
         run: |
             ls -la ./langfuse
       
+      - name: Replace the README file
+        run: |
+          rm -rf ./langfuse/README.md
+          cp ./readme/README.md ./langfuse/README.md
+
       - name: Delete tgz file
         run: |
           rm langfuse-${{ env.LANGFUSE_VERSION }}.tgz
