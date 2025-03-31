@@ -8,6 +8,10 @@ jobs:
     name: Publish langfuse to Artifact Hub
     runs-on: ubuntu-latest
     steps:
+
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+
       - name: Download Langfuse tar file
         run: |
           curl -L -o langfuse-${{ env.LANGFUSE_VERSION }}.tgz https://github.com/langfuse/langfuse-k8s/releases/download/langfuse-${{ env.LANGFUSE_VERSION }}/langfuse-${{ env.LANGFUSE_VERSION }}.tgz
@@ -37,3 +41,11 @@ jobs:
       - name: Show final directory structure
         run: |
             ls -la
+      
+      - name: Push the changes to github
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+          git add . 
+          git commit -m "Added langfuse-${{ env.LANGFUSE_VERSION }}.tgz"
+          git push
