@@ -31,4 +31,4 @@ jobs:
           fi
 
       - name: Show final directory structure
-        run: ls -la langfuse-${{ env.LANGFUSE_VERSION }}
+        run: ls -la langfuse
