@@ -52,6 +52,10 @@ jobs:
         run: |
             ls -la
       
+      - name: Create index file
+        run: |
+          helm repo index --url https://github.com/skyu-io/langfuse-helm-chart/ .
+      
       - name: Push the changes to github
         run: |
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
