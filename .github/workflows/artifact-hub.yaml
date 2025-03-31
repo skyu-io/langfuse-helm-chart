@@ -3,6 +3,8 @@ run-name: Publish langfuse to Artifact Hub
 on: workflow_dispatch
 env:
   LANGFUSE_VERSION: "1.1.0"
+permissions:
+  contents: write
 jobs:
   langfuse:
     name: Publish langfuse to Artifact Hub
