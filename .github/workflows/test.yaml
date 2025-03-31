@@ -17,18 +17,8 @@ jobs:
           tar -xzf langfuse-${{ env.LANGFUSE_VERSION }}.tgz
           ls -la
 
-      - name: Show extracted structure
-        run: ls -la
-
-      - name: Find langfuse directory
-        run: |
-          if [ -d "langfuse-${{ env.LANGFUSE_VERSION }}" ]; then
-            echo "Extracted into langfuse-${{ env.LANGFUSE_VERSION }}"
-          else
-            echo "No directory named langfuse-${{ env.LANGFUSE_VERSION }}, checking for direct files..."
-            mkdir -p langfuse-${{ env.LANGFUSE_VERSION }}
-            mv * langfuse-${{ env.LANGFUSE_VERSION }}/ || true
-          fi
-
       - name: Show final directory structure
-        run: ls -la langfuse
+        run: cd langfuse
+
+      - name: ls
+        run: la -la
