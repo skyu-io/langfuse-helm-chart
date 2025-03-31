@@ -21,4 +21,4 @@ jobs:
         run: cd langfuse
 
       - name: ls
-        run: la -la
+        run: ls -la
