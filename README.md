@@ -33,4 +33,3 @@ The workflow consists of the following steps:
 
 - If the package for the specified version already exists, the action will fail to prevent overwriting the existing chart.
 - For more information on the Langfuse Helm chart, refer to the [Langfuse GitHub Repository](https://github.com/langfuse/langfuse-k8s).
-
