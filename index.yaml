@@ -3,7 +3,55 @@ entries:
   langfuse:
   - apiVersion: v2
     appVersion: 3.48.0
-    created: "2025-04-04T03:36:58.852351412Z"
+    created: "2025-04-04T10:13:38.78673315Z"
+    dependencies:
+    - condition: postgresql.deploy
+      name: postgresql
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 16.4.9
+    - condition: clickhouse.deploy
+      name: clickhouse
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 8.0.5
+    - alias: redis
+      condition: redis.deploy
+      name: valkey
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 2.2.4
+    - alias: s3
+      condition: s3.deploy
+      name: minio
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 14.10.5
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 2.30.0
+    description: Open source LLM engineering platform - LLM observability, metrics,
+      evaluations, prompt management.
+    digest: 4035c1ee6f559dc181402756011b3d2996d9ce62c0047edc5eda9b71d9f2afe0
+    home: https://langfuse.com/
+    icon: https://langfuse.com/langfuse_logo.png
+    keywords:
+    - langfuse
+    - llm
+    - observability
+    - prompt management
+    - metrics
+    maintainers:
+    - email: contact@langfuse.com
+      name: langfuse
+      url: https://langfuse.com/
+    name: langfuse
+    sources:
+    - https://github.com/langfuse/langfuse
+    - https://github.com/langfuse/langfuse-k8s
+    type: application
+    urls:
+    - https://skyu-io.github.io/langfuse-helm-chart/langfuse-1.2.1.tgz
+    version: 1.2.1
+  - apiVersion: v2
+    appVersion: 3.48.0
+    created: "2025-04-04T10:13:38.766936541Z"
     dependencies:
     - condition: postgresql.deploy
       name: postgresql
@@ -51,7 +99,7 @@ entries:
     version: 1.2.0
   - apiVersion: v2
     appVersion: 3.43.0
-    created: "2025-04-04T03:36:58.821879431Z"
+    created: "2025-04-04T10:13:38.747466417Z"
     dependencies:
     - condition: postgresql.deploy
       name: postgresql
@@ -97,4 +145,4 @@ entries:
     urls:
     - https://skyu-io.github.io/langfuse-helm-chart/langfuse-1.1.0.tgz
     version: 1.1.0
-generated: "2025-04-04T03:36:58.80207318Z"
+generated: "2025-04-04T10:13:38.727572085Z"
